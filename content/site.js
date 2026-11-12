@@ -2,6 +2,13 @@
    Edit that file (or use the Build Free Portfolio wizard) to change the site. */
 import config from '../portfolio.config.json';
 
+if (!config.profile) {
+  throw new Error(
+    'portfolio.config.json is in an old format (no "profile" section). ' +
+    'Create a new site with the Build Free Portfolio wizard, or copy the current template config.'
+  );
+}
+
 export const profile = config.profile;
 export const socials = config.socials;
 export const hero = config.hero;
