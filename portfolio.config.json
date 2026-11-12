@@ -196,5 +196,8 @@
   "modules": {
     "backend": false,
     "blog": false
+  },
+  "blog": {
+    "posts": []
   }
 }

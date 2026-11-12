@@ -13,16 +13,18 @@ import {
   certs, training, education, mentoring, linkedinBanner, testimonialCta,
 } from '@/content/site';
 import { listPublishedPosts, listApprovedComments } from '@/lib/store';
-import { BACKEND } from '@/lib/modules';
+import { BACKEND, SHOW_BLOG } from '@/lib/modules';
+import { staticPosts } from '@/lib/content-posts';
 
 export const revalidate = 60;
 
 const isWeb = (href) => /^https?:/i.test(href);
 
 export default async function Home() {
-  const [posts, testimonials] = BACKEND
+  const [storePosts, testimonials] = BACKEND
     ? await Promise.all([listPublishedPosts(), listApprovedComments('general')])
     : [[], []];
+  const posts = BACKEND ? storePosts : staticPosts();
   const latest = posts.slice(0, 3);
 
   return (
@@ -210,7 +212,7 @@ export default async function Home() {
       </div>
 
       {/* ================= BLOG ================= */}
-      <section id="blog" style={BACKEND ? undefined : { display: 'none' }}>
+      <section id="blog" style={SHOW_BLOG ? undefined : { display: 'none' }}>
         <div className="w">
           <div className="sh">
             <span className="lab">{sections.blog.label}</span>

@@ -4,13 +4,14 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import CommentSection from '@/components/CommentSection';
 import { getPost, listApprovedComments } from '@/lib/store';
-import { BACKEND } from '@/lib/modules';
+import { BACKEND, SHOW_BLOG } from '@/lib/modules';
+import { staticPost } from '@/lib/content-posts';
 import { fmtDate, readingTime } from '@/lib/util';
 
 export const revalidate = 60;
 
 async function load(slug) {
-  const post = await getPost(slug);
+  const post = BACKEND ? await getPost(slug) : staticPost(slug);
   return post && post.status === 'published' ? post : null;
 }
 
@@ -22,8 +23,8 @@ export async function generateMetadata({ params }) {
 
 export default async function PostPage({ params }) {
   const post = await load(params.slug);
-  if (!BACKEND || !post) notFound();
-  const comments = await listApprovedComments(post.slug);
+  if (!SHOW_BLOG || !post) notFound();
+  const comments = BACKEND ? await listApprovedComments(post.slug) : [];
 
   return (
     <main className="page post">
@@ -38,7 +39,7 @@ export default async function PostPage({ params }) {
           </div>
         </article>
         <div style={{ marginTop: 80, paddingTop: 50, borderTop: '1px solid var(--ln)' }}>
-          <CommentSection slug={post.slug} comments={comments} heading="Comments" />
+          {BACKEND && <CommentSection slug={post.slug} comments={comments} heading="Comments" />}
         </div>
       </div>
     </main>

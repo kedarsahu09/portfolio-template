@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Icon from './Icon';
-import { BACKEND } from '@/lib/modules';
+import { SHOW_BLOG } from '@/lib/modules';
 
 const LINKS = [
   ['Home', '/#home'],
@@ -27,7 +27,7 @@ export default function Nav({ name = profile.firstName }) {
           {name}<b>.</b>
         </Link>
         <ul id="m" className={open ? 'o' : ''}>
-          {LINKS.filter(([label]) => BACKEND || label !== 'Blog').map(([label, href]) => (
+          {LINKS.filter(([label]) => SHOW_BLOG || label !== 'Blog').map(([label, href]) => (
             <li key={label}>
               <Link href={href} onClick={() => setOpen(false)}>{label}</Link>
             </li>
