@@ -12,8 +12,16 @@
     "footerLine": "Your Job Title  •  X Years Experience"
   },
   "socials": [
-    { "label": "LinkedIn", "icon": "linkedin", "href": "" },
-    { "label": "Email", "icon": "mail", "href": "mailto:you@example.com" }
+    {
+      "label": "LinkedIn",
+      "icon": "linkedin",
+      "href": ""
+    },
+    {
+      "label": "Email",
+      "icon": "mail",
+      "href": "mailto:you@example.com"
+    }
   ],
   "hero": {
     "status": "Open to opportunities · City, Country",
@@ -22,23 +30,64 @@
     "lastName": "Name",
     "role": "Your Job Title",
     "summary": "A short summary of what you do and who you help.",
-    "primaryButton": { "label": "View Projects", "href": "#work" },
+    "primaryButton": {
+      "label": "View Projects",
+      "href": "#work"
+    },
     "secondaryButtonLabel": "View Resume"
   },
   "stats": [
-    ["X+", "Years of experience"],
-    ["X", "Projects delivered"],
-    ["X", "Certifications"]
+    [
+      "X+",
+      "Years of experience"
+    ],
+    [
+      "X",
+      "Projects delivered"
+    ],
+    [
+      "X",
+      "Certifications"
+    ]
   ],
   "sections": {
-    "about": { "label": "About", "title": "A short headline about your work." },
-    "skills": { "label": "Core Skills", "title": "What I work with.", "text": "Your main skills and tools." },
-    "projects": { "badge": "Selected Work", "title": "Featured Projects", "text": "A few projects you are proud of." },
-    "experience": { "label": "Experience", "title": "Your career so far.", "text": "Your roles and what you did in them." },
-    "credentials": { "label": "Credentials", "title": "Certifications and training.", "text": "Your certifications and continued learning." },
-    "blog": { "label": "Blog", "title": "Notes and write-ups.", "text": "Posts about what you are learning and building." },
-    "testimonials": { "title": "What people say" },
-    "contact": { "badge": "Let’s Talk", "title": "Get in Touch", "text": "Have a project, a role, or just a hello? My inbox is open." }
+    "about": {
+      "label": "About",
+      "title": "A short headline about your work."
+    },
+    "skills": {
+      "label": "Core Skills",
+      "title": "What I work with.",
+      "text": "Your main skills and tools."
+    },
+    "projects": {
+      "badge": "Selected Work",
+      "title": "Featured Projects",
+      "text": "A few projects you are proud of."
+    },
+    "experience": {
+      "label": "Experience",
+      "title": "Your career so far.",
+      "text": "Your roles and what you did in them."
+    },
+    "credentials": {
+      "label": "Credentials",
+      "title": "Certifications and training.",
+      "text": "Your certifications and continued learning."
+    },
+    "blog": {
+      "label": "Blog",
+      "title": "Notes and write-ups.",
+      "text": "Posts about what you are learning and building."
+    },
+    "testimonials": {
+      "title": "What people say"
+    },
+    "contact": {
+      "badge": "Let’s Talk",
+      "title": "Get in Touch",
+      "text": "Have a project, a role, or just a hello? My inbox is open."
+    }
   },
   "about": {
     "lead": "A paragraph introducing yourself. Put **double asterisks** around words to make them bold.",
@@ -46,18 +95,40 @@
       "A second paragraph about your background and how you work.",
       "A third paragraph about what you are focused on now."
     ],
-    "bullets": ["A key strength or area you work in", "Another strength", "A third strength"]
+    "bullets": [
+      "A key strength or area you work in",
+      "Another strength",
+      "A third strength"
+    ]
   },
   "skills": [
-    ["layers", "Skill group one", ["Tool A", "Tool B", "Tool C"]],
-    ["shield", "Skill group two", ["Tool D", "Tool E"]]
+    [
+      "layers",
+      "Skill group one",
+      [
+        "Tool A",
+        "Tool B",
+        "Tool C"
+      ]
+    ],
+    [
+      "shield",
+      "Skill group two",
+      [
+        "Tool D",
+        "Tool E"
+      ]
+    ]
   ],
   "projects": [
     {
       "category": "Category",
       "title": "Project title",
       "text": "What the project was and what it achieved.",
-      "tags": ["Tag one", "Tag two"],
+      "tags": [
+        "Tag one",
+        "Tag two"
+      ],
       "image": "/placeholder-project.svg",
       "href": ""
     }
@@ -68,16 +139,29 @@
       "place": "City",
       "role": "Your role",
       "company": "Company name",
-      "points": ["What you did or achieved in this role."]
+      "points": [
+        "What you did or achieved in this role."
+      ]
     }
   ],
   "earlier": [],
   "certs": [
-    ["Issuer · Code", "Certification name", "/placeholder-project.svg"]
+    [
+      "Issuer · Code",
+      "Certification name",
+      "/placeholder-project.svg"
+    ]
   ],
-  "training": ["Training one", "Training two"],
+  "training": [
+    "Training one",
+    "Training two"
+  ],
   "education": [
-    { "year": "2020", "title": "Degree or course name", "place": "School or college" }
+    {
+      "year": "2020",
+      "title": "Degree or course name",
+      "place": "School or college"
+    }
   ],
   "mentoring": {
     "enabled": false,
@@ -86,7 +170,12 @@
     "text": "What you offer in a mentoring or consulting session.",
     "bookLabel": "Book a Session on Topmate",
     "linkedinLabel": "Connect on LinkedIn",
-    "stats": [["X+", "Years in IT"]],
+    "stats": [
+      [
+        "X+",
+        "Years in IT"
+      ]
+    ],
     "workedAtLabel": "Worked at",
     "workedAt": []
   },

@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import CommentSection from '@/components/CommentSection';
 import { getPost, listApprovedComments } from '@/lib/store';
+import { BACKEND } from '@/lib/modules';
 import { fmtDate, readingTime } from '@/lib/util';
 
 export const revalidate = 60;
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }) {
 
 export default async function PostPage({ params }) {
   const post = await load(params.slug);
-  if (!post) notFound();
+  if (!BACKEND || !post) notFound();
   const comments = await listApprovedComments(post.slug);
 
   return (

@@ -1,5 +1,7 @@
 import PostCard from '@/components/PostCard';
 import { listPublishedPosts } from '@/lib/store';
+import { notFound } from 'next/navigation';
+import { BACKEND } from '@/lib/modules';
 
 export const revalidate = 60;
 export const metadata = {
@@ -8,6 +10,7 @@ export const metadata = {
 };
 
 export default async function BlogIndex() {
+  if (!BACKEND) notFound();
   const posts = await listPublishedPosts();
   return (
     <main className="page">

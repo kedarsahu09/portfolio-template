@@ -13,13 +13,16 @@ import {
   certs, training, education, mentoring, linkedinBanner, testimonialCta,
 } from '@/content/site';
 import { listPublishedPosts, listApprovedComments } from '@/lib/store';
+import { BACKEND } from '@/lib/modules';
 
 export const revalidate = 60;
 
 const isWeb = (href) => /^https?:/i.test(href);
 
 export default async function Home() {
-  const [posts, testimonials] = await Promise.all([listPublishedPosts(), listApprovedComments('general')]);
+  const [posts, testimonials] = BACKEND
+    ? await Promise.all([listPublishedPosts(), listApprovedComments('general')])
+    : [[], []];
   const latest = posts.slice(0, 3);
 
   return (
@@ -207,7 +210,7 @@ export default async function Home() {
       </div>
 
       {/* ================= BLOG ================= */}
-      <section id="blog">
+      <section id="blog" style={BACKEND ? undefined : { display: 'none' }}>
         <div className="w">
           <div className="sh">
             <span className="lab">{sections.blog.label}</span>
@@ -225,7 +228,7 @@ export default async function Home() {
       </section>
 
       {/* ================= TESTIMONIALS ================= */}
-      <section id="testimonials" className="tsec">
+      <section id="testimonials" className="tsec" style={BACKEND ? undefined : { display: 'none' }}>
         <div className="w">
           <TestimonialCta cfg={testimonialCta} />
           <h2 className="big gt center" style={{ margin: '70px 0 40px' }}>{sections.testimonials.title}</h2>
@@ -259,7 +262,7 @@ export default async function Home() {
                 </div>
               </div>
             </aside>
-            <ContactForm />
+            {BACKEND ? <ContactForm /> : <a className="btn p" href={`mailto:${profile.email}`}>Email me</a>}
           </div>
         </div>
       </section>
